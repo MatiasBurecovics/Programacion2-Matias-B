@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://bokogexbfrbxp"]
+[gd_scene load_steps=53 format=3 uid="uid://bokogexbfrbxp"]
 
 [ext_resource type="Script" uid="uid://bg3j6bcuk8esh" path="res://Escenas/Componentes/Jugador/jugador.gd" id="1_u0du3"]
 [ext_resource type="Texture2D" uid="uid://6tfijmq22ccu" path="res://Assets/Texturas/Jugador/attack.png" id="2_g6jpv"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://bwu51dqyjb5la" path="res://Escenas/Componentes/Jugador/Estados/Cayendo.gd" id="7_f14ml"]
 [ext_resource type="Script" uid="uid://ciuknaum861i8" path="res://Escenas/Componentes/Jugador/Estados/Corriendo.gd" id="8_n06o3"]
 [ext_resource type="Script" uid="uid://cdfqb1ajabp42" path="res://Escenas/Componentes/Jugador/Estados/Saltando.gd" id="9_cop5c"]
+[ext_resource type="Script" uid="uid://cyty3wxo2ud2r" path="res://Escenas/Componentes/Jugador/Estados/Atacando.gd" id="10_cop5c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u0du3"]
 size = Vector2(13, 54)
@@ -335,10 +336,6 @@ script = SubResource("GDScript_5howd")
 jugador = NodePath("..")
 metadata/_custom_type_script = "uid://dfky55qnbqebj"
 
-[node name="Estado" type="Node" parent="MaquinaEstado"]
-script = ExtResource("7_0541f")
-metadata/_custom_type_script = "uid://de4ke1wlgntl2"
-
 [node name="Cayendo" type="Node" parent="MaquinaEstado"]
 script = ExtResource("7_f14ml")
 
@@ -350,3 +347,6 @@ script = ExtResource("8_n06o3")
 
 [node name="Saltando" type="Node" parent="MaquinaEstado"]
 script = ExtResource("9_cop5c")
+
+[node name="Atacando" type="Node" parent="MaquinaEstado"]
+script = ExtResource("10_cop5c")

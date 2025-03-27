@@ -1,11 +1,15 @@
 extends Estado
 
 func enter():
-	jugador.sprite.play("Saltando")
+	jugador.sprite.play("Corriendo")
 
 func physics_update(delta):
-	
-	if Input.get_axis("mov_izquierda","mov_derecha"):
-		jugador.velocity.x=jugador.velocidad
-		jugador.move_and_slide()
-		
+	var direccion = Input.get_axis("mov_izquierda", "mov_derecha") 
+
+	if direccion == 0:  
+		jugador.velocity.x = 0
+		get_parent().siguiente_estado("Quieto") 
+	else:
+		jugador.velocity.x = direccion * jugador.velocidad  
+
+	jugador.move_and_slide()
