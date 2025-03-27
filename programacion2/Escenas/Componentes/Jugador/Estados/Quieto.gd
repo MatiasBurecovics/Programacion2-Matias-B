@@ -1,7 +1,7 @@
 extends Estado
 
 func enter():
-	print("Hola")
+	jugador.velocity = Vector2.ZERO 
 
 func update(delta):
-	jugador.velocity.y= 100
+	pass
