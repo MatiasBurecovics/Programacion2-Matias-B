@@ -10,8 +10,11 @@ func _ready():
 
 func _process(delta):
 	estado_actual.update(delta)
+	
+func _physics_process(delta):
+	estado_actual.physics_update(delta)
 
-func siguiente_estado(estado_siguiente : Estado):
+func siguiente_estado(estado_siguiente : String):
 	estado_actual.exit()
-	estado_actual=estado_siguiente
+	estado_actual=get_node(estado_siguiente)
 	estado_actual.enter()

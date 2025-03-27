@@ -1,12 +1,14 @@
-[gd_scene load_steps=49 format=3 uid="uid://bokogexbfrbxp"]
+[gd_scene load_steps=52 format=3 uid="uid://bokogexbfrbxp"]
 
 [ext_resource type="Script" uid="uid://bg3j6bcuk8esh" path="res://Escenas/Componentes/Jugador/jugador.gd" id="1_u0du3"]
 [ext_resource type="Texture2D" uid="uid://6tfijmq22ccu" path="res://Assets/Texturas/Jugador/attack.png" id="2_g6jpv"]
 [ext_resource type="Texture2D" uid="uid://bhilp6mvbqdj2" path="res://Assets/Texturas/Jugador/jump.png" id="3_5howd"]
 [ext_resource type="Texture2D" uid="uid://dflngfynt4pj4" path="res://Assets/Texturas/Jugador/run.png" id="4_0541f"]
 [ext_resource type="Texture2D" uid="uid://b034efa3emex" path="res://Assets/Texturas/Jugador/idle.png" id="5_f14ml"]
-[ext_resource type="Script" uid="uid://dfky55qnbqebj" path="res://Escenas/Componentes/MaquinaEstado/maquina_de_estado.gd" id="6_5howd"]
 [ext_resource type="Script" uid="uid://dbo0c2rea53oe" path="res://Escenas/Componentes/Jugador/Estados/Quieto.gd" id="7_0541f"]
+[ext_resource type="Script" uid="uid://bwu51dqyjb5la" path="res://Escenas/Componentes/Jugador/Estados/Cayendo.gd" id="7_f14ml"]
+[ext_resource type="Script" uid="uid://ciuknaum861i8" path="res://Escenas/Componentes/Jugador/Estados/Corriendo.gd" id="8_n06o3"]
+[ext_resource type="Script" uid="uid://cdfqb1ajabp42" path="res://Escenas/Componentes/Jugador/Estados/Saltando.gd" id="9_cop5c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u0du3"]
 size = Vector2(13, 54)
@@ -312,8 +314,13 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="Jugador" type="CharacterBody2D"]
+[sub_resource type="GDScript" id="GDScript_5howd"]
+script/source = "extends MaquinaEStado
+"
+
+[node name="Jugador" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_u0du3")
+sprite = NodePath("AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3, 0)
@@ -323,11 +330,23 @@ shape = SubResource("RectangleShape2D_u0du3")
 sprite_frames = SubResource("SpriteFrames_4woxc")
 animation = &"Atacando"
 
-[node name="MaquinaEStado" type="Node" parent="." node_paths=PackedStringArray("jugador")]
-script = ExtResource("6_5howd")
+[node name="MaquinaEstado" type="Node" parent="." node_paths=PackedStringArray("jugador")]
+script = SubResource("GDScript_5howd")
 jugador = NodePath("..")
 metadata/_custom_type_script = "uid://dfky55qnbqebj"
 
-[node name="Estado" type="Node" parent="MaquinaEStado"]
+[node name="Estado" type="Node" parent="MaquinaEstado"]
 script = ExtResource("7_0541f")
 metadata/_custom_type_script = "uid://de4ke1wlgntl2"
+
+[node name="Cayendo" type="Node" parent="MaquinaEstado"]
+script = ExtResource("7_f14ml")
+
+[node name="Quieto" type="Node" parent="MaquinaEstado"]
+script = ExtResource("7_0541f")
+
+[node name="Corriendo" type="Node" parent="MaquinaEstado"]
+script = ExtResource("8_n06o3")
+
+[node name="Saltando" type="Node" parent="MaquinaEstado"]
+script = ExtResource("9_cop5c")
