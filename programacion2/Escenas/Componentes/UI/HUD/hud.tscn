@@ -1,0 +1,99 @@
+[gd_scene load_steps=8 format=3 uid="uid://beeh8c0v2u6vb"]
+
+[ext_resource type="Script" uid="uid://b3ancw76liowx" path="res://Escenas/Componentes/UI/HUD/hud.gd" id="1_ls4xk"]
+[ext_resource type="Texture2D" uid="uid://cengjk7hitjw4" path="res://Assets/Texturas/monedas.png" id="1_w7ikj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l7qxf"]
+bg_color = Color(1, 0.141176, 0.156863, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_l7qxf"]
+font_size = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7ikj"]
+bg_color = Color(8.66354e-07, 0.678712, 0.739335, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_w7ikj"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_ls4xk"]
+font_size = 40
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ls4xk")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="BarrasContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 16
+
+[node name="VidaContainer" type="HBoxContainer" parent="MarginContainer/BarrasContainer"]
+custom_minimum_size = Vector2(10, 30)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/BarrasContainer/VidaContainer"]
+custom_minimum_size = Vector2(256, 32)
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_l7qxf")
+max_value = 0.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="MarginContainer/BarrasContainer/VidaContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "0❤️"
+label_settings = SubResource("LabelSettings_l7qxf")
+
+[node name="MagiaContainer" type="HBoxContainer" parent="MarginContainer/BarrasContainer"]
+layout_mode = 2
+
+[node name="ProgressBar2" type="ProgressBar" parent="MarginContainer/BarrasContainer/MagiaContainer"]
+custom_minimum_size = Vector2(256, 32)
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_w7ikj")
+max_value = 0.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="MarginContainer/BarrasContainer/MagiaContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "0 🪄"
+label_settings = SubResource("LabelSettings_w7ikj")
+
+[node name="MonedasContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="MarginContainer/MonedasContainer"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_ls4xk")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/MonedasContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture = ExtResource("1_w7ikj")
+expand_mode = 5
