@@ -14,8 +14,9 @@ var monedas=1076
 @onready var textoMonedas=$MarginContainer/MonedasContainer/Label
 
 func _ready():
-	barraVida.max_value=vidaMax
-	barraMagia.max_value=magiaMax
+	actualizar_valores()
+	
+
 
 func _process(delta):
 	barraVida.value=vida
@@ -23,3 +24,8 @@ func _process(delta):
 	barraMagia.value=magia
 	textoMagia.text=str(magia)
 	textoMonedas.text=str(monedas)
+
+func actualizar_valores():
+	barraVida.max_value=vidaMax
+	barraMagia.max_value=magiaMax
+	

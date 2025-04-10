@@ -11,5 +11,6 @@ func physics_update(delta):
 		get_parent().siguiente_estado("Quieto") 
 	else:
 		jugador.velocity.x = direccion * jugador.velocidad  
+		jugador.sprite.flip_h = direccion < 0 
 
 	jugador.move_and_slide()

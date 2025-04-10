@@ -1,9 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2kfefyih6huh"]
+[gd_scene load_steps=10 format=3 uid="uid://c2kfefyih6huh"]
 
 [ext_resource type="PackedScene" uid="uid://bokogexbfrbxp" path="res://Escenas/Componentes/Jugador/jugador.tscn" id="1_p851g"]
+[ext_resource type="Texture2D" uid="uid://dpqc7ta58h0lh" path="res://Assets/Texturas/Background/bg_1.png" id="2_ceiok"]
+[ext_resource type="Texture2D" uid="uid://cpd2ld18kx8ww" path="res://Assets/Texturas/Background/bg_2.png" id="3_u6dsj"]
+[ext_resource type="Texture2D" uid="uid://byfcydkubepxi" path="res://Assets/Texturas/Background/bg_3.png" id="4_im1ys"]
+[ext_resource type="Texture2D" uid="uid://b1t7qdu8kgkuf" path="res://Assets/Texturas/Background/bg_4.png" id="5_xmg66"]
+[ext_resource type="Texture2D" uid="uid://dk6n2qhymndb5" path="res://Assets/Texturas/Background/bg_5.png" id="6_u6dsj"]
+[ext_resource type="Texture2D" uid="uid://b7r1ylxx66s8g" path="res://Assets/Texturas/enemigo.png" id="7_im1ys"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p851g"]
 size = Vector2(1165, 104.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_im1ys"]
 
 [node name="Nivel0" type="Node2D"]
 position = Vector2(872, 101)
@@ -15,3 +23,50 @@ position = Vector2(872, 101)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-300, 500.25)
 shape = SubResource("RectangleShape2D_p851g")
+
+[node name="Fondo" type="ParallaxBackground" parent="."]
+scroll_limit_end = Vector2(0, 360)
+
+[node name="Cielo" type="ParallaxLayer" parent="Fondo"]
+motion_scale = Vector2(0.1, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Fondo/Cielo"]
+texture = ExtResource("2_ceiok")
+offset = Vector2(640, 360)
+
+[node name="MontañaLejos" type="ParallaxLayer" parent="Fondo"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Fondo/MontañaLejos"]
+texture = ExtResource("3_u6dsj")
+offset = Vector2(640, 360)
+
+[node name="Ciudad" type="ParallaxLayer" parent="Fondo"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Fondo/Ciudad"]
+position = Vector2(154, 0)
+texture = ExtResource("4_im1ys")
+offset = Vector2(640, 360)
+
+[node name="Bosque" type="ParallaxLayer" parent="Fondo"]
+motion_scale = Vector2(0.1, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Fondo/Bosque"]
+texture = ExtResource("5_xmg66")
+offset = Vector2(640, 360)
+
+[node name="BosqueCerca" type="ParallaxLayer" parent="Fondo"]
+motion_scale = Vector2(2, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Fondo/BosqueCerca"]
+texture = ExtResource("6_u6dsj")
+offset = Vector2(640, 360)
+
+[node name="Enemigo" type="CharacterBody2D" parent="." groups=["Enemigos"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemigo"]
+position = Vector2(113, 393)
+scale = Vector2(0.047, 0.0551999)
+texture = ExtResource("7_im1ys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemigo"]
+shape = SubResource("RectangleShape2D_im1ys")

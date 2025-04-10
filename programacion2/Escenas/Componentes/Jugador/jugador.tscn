@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://bokogexbfrbxp"]
+[gd_scene load_steps=55 format=3 uid="uid://bokogexbfrbxp"]
 
 [ext_resource type="Script" uid="uid://bg3j6bcuk8esh" path="res://Escenas/Componentes/Jugador/jugador.gd" id="1_u0du3"]
 [ext_resource type="Texture2D" uid="uid://6tfijmq22ccu" path="res://Assets/Texturas/Jugador/attack.png" id="2_g6jpv"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://ciuknaum861i8" path="res://Escenas/Componentes/Jugador/Estados/Corriendo.gd" id="8_n06o3"]
 [ext_resource type="Script" uid="uid://cdfqb1ajabp42" path="res://Escenas/Componentes/Jugador/Estados/Saltando.gd" id="9_cop5c"]
 [ext_resource type="Script" uid="uid://cyty3wxo2ud2r" path="res://Escenas/Componentes/Jugador/Estados/Atacando.gd" id="10_cop5c"]
+[ext_resource type="PackedScene" uid="uid://beeh8c0v2u6vb" path="res://Escenas/Componentes/UI/HUD/hud.tscn" id="11_h171t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u0du3"]
 size = Vector2(13, 54)
@@ -319,9 +320,12 @@ animations = [{
 script/source = "extends MaquinaEStado
 "
 
-[node name="Jugador" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_h171t"]
+
+[node name="Jugador" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "hud")]
 script = ExtResource("1_u0du3")
 sprite = NodePath("AnimatedSprite2D")
+hud = NodePath("CanvasLayer/HUD")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3, 0)
@@ -348,5 +352,25 @@ script = ExtResource("8_n06o3")
 [node name="Saltando" type="Node" parent="MaquinaEstado"]
 script = ExtResource("9_cop5c")
 
-[node name="Atacando" type="Node" parent="MaquinaEstado"]
+[node name="Atacando" type="Node" parent="MaquinaEstado" node_paths=PackedStringArray("attack_hitbox")]
 script = ExtResource("10_cop5c")
+attack_hitbox = NodePath("../../AttackHitbox")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("11_h171t")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+limit_bottom = 648
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+editor_draw_drag_margin = true
+
+[node name="AttackHitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox"]
+position = Vector2(8, -8)
+shape = SubResource("CircleShape2D_h171t")
+debug_color = Color(0.99991, 0, 0.096654, 0.42)
