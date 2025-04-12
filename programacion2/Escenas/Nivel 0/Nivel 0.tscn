@@ -12,6 +12,7 @@
 size = Vector2(1165, 104.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_im1ys"]
+size = Vector2(34, 117)
 
 [node name="Nivel0" type="Node2D"]
 position = Vector2(872, 101)
@@ -63,10 +64,11 @@ offset = Vector2(640, 360)
 
 [node name="Enemigo" type="CharacterBody2D" parent="." groups=["Enemigos"]]
 
-[node name="Sprite2D" type="Sprite2D" parent="Enemigo"]
+[node name="Sprite2D" type="Sprite2D" parent="Enemigo" groups=["Enemigos"]]
 position = Vector2(113, 393)
 scale = Vector2(0.047, 0.0551999)
 texture = ExtResource("7_im1ys")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemigo"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemigo" groups=["Enemigos"]]
+position = Vector2(121, 389.5)
 shape = SubResource("RectangleShape2D_im1ys")

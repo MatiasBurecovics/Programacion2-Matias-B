@@ -60,7 +60,7 @@ show_percentage = false
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
-text = "0❤️"
+text = "0"
 label_settings = SubResource("LabelSettings_l7qxf")
 
 [node name="MagiaContainer" type="HBoxContainer" parent="MarginContainer/BarrasContainer"]
@@ -77,7 +77,7 @@ show_percentage = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-text = "0 🪄"
+text = "0 "
 label_settings = SubResource("LabelSettings_w7ikj")
 
 [node name="MonedasContainer" type="HBoxContainer" parent="MarginContainer"]
