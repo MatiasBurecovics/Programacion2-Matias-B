@@ -1,16 +1,16 @@
 extends CharacterBody2D
-@export var velocidad = 200.0
-@export var gravedad=550.0
+@export var velocidad = 8000.0
+@export var gravedad=750.0
 @export var sprite : AnimatedSprite2D
 @export var hud: Control
+@export var impulso_salto : float = 500
 
 var vida: int
 var max_vida: int=500
 var magia: int
 var max_magia: int = 10
 var monedas: int
-var gravedad_subida = 4
-var gravedad_caida = 30
+
 
 func _ready():
 	inicializar_jugador()
