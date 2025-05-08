@@ -9,15 +9,19 @@ var vida: int
 var max_vida: int=500
 var magia: int
 var max_magia: int = 10
-var monedas: int
+var monedas: int = 999
 
 
 func _ready():
+	
 	inicializar_jugador()
 	actualizar_hud()
+	Globales.jugador=self
+	await get_tree().process_frame
+	monedas=Globales.save_manager.datos_guardado.monedas
 
 func _physics_process(_delta):
-	pass
+	actualizar_hud()
 	
 
 func inicializar_jugador():

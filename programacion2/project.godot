@@ -14,9 +14,14 @@ config/name="Programacion2"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://Assets/Texturas/icon.svg"
 
+[autoload]
+
+Globales="*res://Escenas/Componentes/Globales/globales.gd"
+
 [global_group]
 
 Enemigos=""
+Jugador=""
 
 [input]
 
