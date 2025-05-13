@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b1t7qdu8kgkuf" path="res://Assets/Texturas/Background/bg_4.png" id="5_xmg66"]
 [ext_resource type="Texture2D" uid="uid://dk6n2qhymndb5" path="res://Assets/Texturas/Background/bg_5.png" id="6_u6dsj"]
 [ext_resource type="Texture2D" uid="uid://b7r1ylxx66s8g" path="res://Assets/Texturas/enemigo.png" id="7_im1ys"]
-[ext_resource type="Script" uid="uid://b4t0rust4oys0" path="res://Escenas/Nivel 0/enemigoVolador/enemigo.gd" id="7_xmg66"]
+[ext_resource type="Script" uid="uid://b4t0rust4oys0" path="res://Escenas/Nivel 0/enemigoss/enemigomovedizo.gd" id="7_xmg66"]
 [ext_resource type="Texture2D" uid="uid://cengjk7hitjw4" path="res://Assets/Texturas/monedas.png" id="9_7qjbc"]
 [ext_resource type="Script" uid="uid://d4fid68b0i37g" path="res://Escenas/Componentes/Coleccionables/monedas.gd" id="9_jh07q"]
 [ext_resource type="Script" uid="uid://ccrgga4wj21a4" path="res://Escenas/Saves/save_manager.gd" id="10_mfqc5"]
