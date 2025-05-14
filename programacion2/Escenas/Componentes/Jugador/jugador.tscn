@@ -322,7 +322,7 @@ script/source = "extends MaquinaEStado
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h171t"]
 
-[node name="Jugador" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "hud")]
+[node name="Jugador" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "hud") groups=["Jugador"]]
 script = ExtResource("1_u0du3")
 sprite = NodePath("AnimatedSprite2D")
 hud = NodePath("CanvasLayer/HUD")
