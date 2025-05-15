@@ -87,7 +87,7 @@ size_flags_vertical = 0
 
 [node name="Label" type="Label" parent="MarginContainer/MonedasContainer"]
 layout_mode = 2
-text = "carksi"
+text = "monedas"
 label_settings = SubResource("LabelSettings_ls4xk")
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/MonedasContainer"]

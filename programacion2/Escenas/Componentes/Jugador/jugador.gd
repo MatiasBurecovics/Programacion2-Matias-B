@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var hud: Control
 @export var impulso_salto : float = 500
 
-var vida: int
+var vida: int=100
 var max_vida: int=500
 var magia: int
 var max_magia: int = 10

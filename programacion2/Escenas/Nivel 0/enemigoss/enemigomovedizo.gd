@@ -17,5 +17,3 @@ func _on_timer_ataque_timeout():
 	for cuerpo in hitbox.get_overlapping_bodies():
 		if cuerpo.is_in_group("Jugador"):
 			cuerpo.herir(100)
-			print("herido jugador")
-		
