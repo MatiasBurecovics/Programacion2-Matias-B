@@ -23,5 +23,5 @@ func _physics_process(delta: float) -> void:
 
 func _on_timer_timeout():
 	for cuerpo in hitbox.get_overlapping_bodies():
-		if cuerpo.is_in_group("Jugador") and cuerpo.has_method("herir"):
+		if cuerpo.is_in_group("Jugador"):
 			cuerpo.herir(150)
